@@ -58,7 +58,7 @@ The _home screen_ of the web site is accessible to all user roles and have the f
 
 The _admin portal_ allows the authenticated admin user to control list of areas, categories, and users.
 
-<img src="https://raw.githubusercontent.com/szwalker/Fake-Craigslist/master/image/adminPortal.jpeg" height="550" width="800">
+<img src="https://raw.githubusercontent.com/szwalker/Fake-Craigslist/master/image/adminPortal.png" height="550" width="800">
 
 
 ## Use Cases
