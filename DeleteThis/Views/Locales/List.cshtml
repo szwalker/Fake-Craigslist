@@ -1,0 +1,38 @@
+﻿@model IPagedList<Data.Models.Locale>
+@using PagedList;
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Create locale for area";
+}
+
+<h2>Locales in  @ViewBag.areaName</h2>
+
+<p>
+
+    @Html.ActionLink("Create New", "Create")
+
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Name)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id2 = item.Id }) |
+                @Html.ActionLink("Details", "Details", "Locales", new { id2 = item.Id }, null)
+
+            </td>
+        </tr>
+    }
+
+</table>
+@Html.PagedListPager(Model, page => Url.Action("List", new { page }))

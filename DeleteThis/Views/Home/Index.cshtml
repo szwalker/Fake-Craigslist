@@ -1,0 +1,76 @@
+﻿@model Data.Models.HomePageViewModel
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+
+<div class="jumbotron">
+    @{
+        if (ViewBag.Header.Equals("Default"))
+        {
+            <h1>Fake Craigslist</h1>
+        }
+        else
+        {
+            <h1>@ViewBag.Header</h1>
+        }
+    }
+    <p class="lead">Craigslist is a American classified advertisements website with sections devoted to jobs, housing...... </p>
+
+</div>
+
+
+
+<div class="row" style="column-fill:auto">
+    <div class="col-md-8 col-sm-6">
+        <h2 style="text-align:center">Category</h2>
+        @{
+            foreach (var Cat in Model.Cat)
+            {
+                <div class="card category col-lg-4 col-md-4 col-sm-3 " style="width: 18rem;  background-color:  lavender;">
+                    <div class="card-header">
+                        <b>@Html.ActionLink(Cat.Name, "UserPost", "Categories", new { CatName = BizLogic.Logic.Biz1.GenerateSlug(Cat.Name), CatId = Cat.Id }, new { style = "color:mediumpurple" })</b>
+                    </div>
+
+                    <ul class="list-group list-group-flush ">
+                        @foreach (var sub in Cat.Subcategories)
+                        {
+                            if (sub.Viewable)
+                            {
+                                <li class="list-group-item ">@Html.ActionLink(sub.Name, "UserPost", "Subcategories", new { CatName = BizLogic.Logic.Biz1.GenerateSlug(Cat.Name), CatId = Cat.Id, SubCatName = BizLogic.Logic.Biz1.GenerateSlug(sub.Name), SubCatId = sub.Id }, null)</li>
+
+                            }
+                        }
+                    </ul>
+                </div>
+            }
+        }
+    </div>
+
+    <div class=" col-lg-4 col-md-4 col-sm-1" >
+        <h2 >Area</h2>
+        @{
+            foreach (var area in Model.Area)
+            {
+                <div class="card area" style="width: 18rem; background-color:gray">
+                    <div class="card-header" >
+                        <b>@Html.ActionLink(area.Name, "Index", "Home", new { AreaName = BizLogic.Logic.Biz1.GenerateSlug(area.Name), AreaId = area.Id }, new { style = "color:white" })</b>
+                    </div>
+                    <ul class="list-group list-group-flush">
+
+                        @foreach (var locale in area.Locales)
+                        {
+                            if (locale.Viewable)
+                            {
+                                <li class="list-group-item">@Html.ActionLink(locale.Name, "Index", "Home", new { AreaName = BizLogic.Logic.Biz1.GenerateSlug(area.Name), AreaId = area.Id, LocaleName = BizLogic.Logic.Biz1.GenerateSlug(locale.Name), LocaleId = locale.Id }, null)</li>
+                            }
+                        }
+                    </ul>
+                </div>
+
+
+            }
+        }
+    </div>
+</div>

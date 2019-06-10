@@ -1,0 +1,44 @@
+﻿@model Data.Models.Post
+
+@{
+    ViewBag.Title = "Title:" + Model.Title;
+}
+
+<div>
+    <h4>Post Information:</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Expiration)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Expiration)
+        </dd>
+
+        <dd>
+            <div class=" col-md-8 dl-horizontal">
+                <center css="font-size: 150%;"><h2>@Model.Title</h2></center><br /><br />
+                <p>@Model.Body</p>
+            </div>
+
+        </dd>
+
+    </dl>
+
+
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "UserPostList")
+
+</p>
+@Html.ActionLink("Reply", "Create", "Message", new { PostId = Model.Id }, new { @class = "btn btn-primary" })

@@ -1,0 +1,55 @@
+﻿@model Data.Models.Category
+
+@{
+    ViewBag.Title = "Modify a Category";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Modify Category</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <strong class = "control-label col-md-2">View the Category</strong> 
+            <div class="col-md-10">
+                <div class="checkbox">
+                    &nbsp   &nbsp &nbsp
+                    @Html.EditorFor(model => model.Viewable)
+                    @Html.ValidationMessageFor(model => model.Viewable, "", new { @class = "text-danger" })
+                    Uncheck this box to hide the Category
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                
+                <input type="submit" value="Save" class="btn btn-danger" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "List")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

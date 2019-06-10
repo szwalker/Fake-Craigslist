@@ -1,0 +1,17 @@
+﻿@{
+    ViewBag.Title = "Admin Portal";
+}
+
+
+<div class="row">
+    <div class="jumbotron col-4">
+        <h1 class="display-4">Admin Portal</h1>
+        <p class="lead">The following links allow you to modify Areas, Locales, Categories, Subcategories, User Posts and User Roles.</p>
+        <hr class="my-4">
+        
+        @Html.ActionLink("List of Areas", "List", "Areas", null, new { @class = "btn btn-primary" })
+        @Html.ActionLink("List of Categories", "List", "Categories", null, new { @class = "btn btn-primary" })
+        @Html.ActionLink("List of Users", "ListUsers", "Account", null, new { @class = "btn btn-primary" })
+    </div>
+ 
+</div>

@@ -1,0 +1,39 @@
+﻿@model Data.Models.LocalePostViewModel
+
+@{
+    ViewBag.Title = "User Posts";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Post List</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            <strong class="control-label col-md-2">Date</strong>
+        </th>
+        <th>
+            <strong class="control-label col-md-2">Title</strong>
+        </th>
+        <th></th>
+    </tr>
+
+    @{
+        foreach (var p in Model.Posts)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => p.Date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => p.Title)
+                </td>
+            </tr>
+        }
+    }
+
+</table>
+<br />
+<br />
+<a href="/Home/Index" class="btn btn-primary col-md-2"> Back to Home </a><br />

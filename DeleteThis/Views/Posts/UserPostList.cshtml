@@ -1,0 +1,59 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+@model IPagedList<Data.Models.Post>
+
+@{
+    ViewBag.Title = "My posts";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>My Posts</h2>
+
+<p>
+    @Html.ActionLink("Create New Post", "DetermineAreaCat") | @Html.ActionLink("View Expired Posts", "ExpiredPosts")
+</p>
+<h2 class="control-label col-md-7 col-md-offset-5">Valid Posts</h2>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Expiration)
+        </th>
+
+
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>
+            @Html.ActionLink(item.Title,"Details","Posts",new {id=item.Id},null)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Expiration)
+        </td>
+
+
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+        </td>
+    </tr>
+        //ViewBag.expired
+    }
+
+</table>
+@Html.PagedListPager(Model, page => Url.Action("UserPostList", new { page }))
+
+
+<br /><br />
+<a href="/Home/Index" class="btn btn-primary col-md-2"> Back to Home </a><br />

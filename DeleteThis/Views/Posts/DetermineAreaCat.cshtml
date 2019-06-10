@@ -1,0 +1,71 @@
+﻿
+@model Data.Models.CatAreaViewModel
+
+@{
+    ViewBag.Title = "DetermineAreaCat";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h4>Please select Area and Category</h4>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        <div class="col-md-2">
+            <strong class="control-label col-md-2">Area</strong>
+            @Html.ValidationMessageFor(model => model.Areas, "", new { @class = "text-danger" })
+        </div>
+        <div class="col-md-10">
+            @Html.DropDownListFor(m => m.Areas,
+                Model.Areas.Where(d => d.Viewable == true).Select(d => new SelectListItem()
+                {
+                    Value = d.Id.ToString(),
+                    Text = d.Name
+                }), "Please select", null)
+            @Html.ValidationMessageFor(model => model.Areas, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-2">
+            <strong class="control-label col-md-2">Category</strong>
+
+        </div>
+        <div class="col-md-10">
+            @Html.DropDownListFor(m => m.Categories,
+                Model.Categories.Where(d=>d.Viewable==true).Select(d => new SelectListItem()
+                {
+                    Value = d.Id.ToString(),
+                    Text = d.Name
+                }), "Please select",null)
+            @Html.ValidationMessageFor(model => model.Areas, "", new { @class = "text-danger" })
+        </div>
+        &nbsp;&nbsp;&nbsp;&nbsp;@Html.ValidationMessageFor(model => model.Categories, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        <div class="col-md-10">
+            &nbsp;&nbsp; <input type="submit" value="Next" class="btn btn-warning" />
+        </div>
+    </div>
+    <br />
+
+
+
+
+</div>
+}
+
+<div>
+
+    <a href="/Home/Index" class="btn btn-primary col-md-2"> Back to Home </a><br />
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

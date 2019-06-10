@@ -1,0 +1,65 @@
+﻿@model Data.Models.Message
+
+@{
+    ViewBag.Title = "View Message";
+}
+
+<h2>View Message</h2>
+
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            Post
+        </dt>
+
+        <dd>
+            @{
+                string title = ViewBag.PostTitle;
+                int PostId = ViewBag.PostId;
+                @Html.ActionLink(title, "Details", "Posts", new { id = PostId }, null);
+            }
+        </dd>
+        <dt>
+            Status
+        </dt>
+        <dd>
+            @if (ViewBag.PostStatus.Equals("Active"))
+            {
+                <b style="color:lightseagreen">@ViewBag.PostStatus</b>
+            }
+            else
+            {
+                <b style="color:red">@ViewBag.PostStatus</b>
+            }
+        </dd>
+
+        <dt>
+            Sender
+        </dt>
+
+        <dd>
+            @ViewBag.SenderEmail
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Subject)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Subject)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Content)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Content)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to Inbox", "Inbox",  null,new { @class = "btn btn-primary" })
+
+</p>

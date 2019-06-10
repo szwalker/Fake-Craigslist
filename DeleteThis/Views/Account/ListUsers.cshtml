@@ -1,0 +1,33 @@
+﻿@model IPagedList<Models.ApplicationUser>
+@using PagedList;
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Account List";
+}
+
+<h2>Account List</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            Username.
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td>
+                @Html.ActionLink("Edit Role", "Edit", new { uid = item.Id }) |
+                @Html.ActionLink("Posts", "List", "Posts", new { uid = item.Id }, null)
+            </td>
+        </tr>
+    }
+
+</table>
+@Html.PagedListPager(Model, page => Url.Action("List", new { page }))
+

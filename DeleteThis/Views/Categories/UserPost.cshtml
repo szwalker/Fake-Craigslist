@@ -1,0 +1,47 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+@model IPagedList<Data.Models.Post>
+
+
+@{
+    ViewBag.Title = "User Posts";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Category Post List</h2>
+
+<p>
+    @Html.ActionLink("Create New Post", "DetermineAreaCat", "Posts", null, null)
+
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            <strong class="control-label col-md-2">Date</strong>
+        </th>
+        <th>
+            <strong class="control-label col-md-2">Title</strong>
+        </th>
+        <th></th>
+    </tr>
+
+    @{
+        foreach (var p in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => p.Date)
+                </td>
+                <td>
+                    @Html.ActionLink(p.Title, "Details", "Posts", new { id = p.Id }, null)
+                </td>
+            </tr>
+        }
+    }
+
+</table>
+@Html.PagedListPager(Model, page => Url.Action("UserPost", new { page }))
+<br />
+<br />
+<a href="/Home/Index" class="btn btn-primary col-md-2"> Back to Home </a><br />

@@ -1,0 +1,39 @@
+﻿@model IPagedList<Data.Models.Subcategory>
+@using PagedList;
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Listing of all Subcategories";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Listing of all Subcategories</h2>
+
+<p>
+    @Html.ActionLink("Create Subcategory", "Create", "Subcategories", null, new { @class = "btn btn-primary" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Name)
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.ActionLink("Modify/Hide", "Modify", "Subcategories", new { id2 = item.Id }, null)
+            </td>
+        </tr>
+    }
+
+
+</table>
+@Html.PagedListPager(Model, page => Url.Action("List", new { page }))
+
+@Html.ActionLink("Back to Category", "List", "Categories", null, null)
