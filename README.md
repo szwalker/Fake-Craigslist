@@ -17,43 +17,45 @@ Password: QQPassword123!
 # Solution Details
 
 ## User Roles
-There are three main user roles: admin, user, and anonymous.
+There are three main user roles: `admin`, `user`, and `anonymous`.
 
-The first two roles require an account on the system. Anonymous users are those who use the web site without logging in.
+The first two roles require an account on the system.
 
-The user role allows one to create, modify, and delete posts, read other people’s posts, and respond to posts. The anonymous role can read posts, but cannot create or respond to them.
+`Anonymous` users are those who use the web site without logging in.
 
-The admin role is is for web site administrators to set up and configure the web site, but can also access most of the same functions as the user role.
+The `user` role allows one to create, modify, and delete posts, read other people’s posts, and respond to posts. The anonymous role can read posts, but cannot create or respond to them.
 
-The first user on the system is automatically generated as soon as the App finished compressing, and the account will be placed into the admin role by default.
+The `admin` role is is for web site administrators to set up and configure the web site, but can also access most of the same functions as the user role.
+
+The first user on the system is automatically generated as soon as the App finished compiling, and the account will be placed into the admin role by default.
 
 ## Views
 A post is a single listing for an item or service which can be posted by anyone in the admin or user roles. To facilitate data modeling, a post has a unique identifier, timestamp, expiration, owner, title, body, location, and category information.
 
 
-The list posts screen allows a logged in user to see a list of their own unexpired and expired posts separately. The posts on the screen are always paginated, and sorted by their timestamp.
+The _list posts_ screen allows a logged in user to see a list of their own unexpired and expired posts separately. The posts on the screen are always paginated, and sorted by their timestamp.
 
 
-The create post screen allows admin or user to create a new post. The screen will prompt the user to enter post title, post body, post location and category. Other fields such as the date/time and unique identifier will be computed internally.
+The _create post_ screen allows admin or user to create a new post. The screen will prompt the user to enter post title, post body, post location and category. Other fields such as the date/time and unique identifier will be computed internally.
 
 
-The modify post screen is similar to create post, except that the user can edit an existing post. As the user modifies the post, the time stamp will be updated to reflect the time of the modification.
+The _modify post_ screen is similar to create post, except that the user can edit an existing post. As the user modifies the post, the time stamp will be updated to reflect the time of the modification.
 
 
-The delete post screen allows admin or user to delete an existing post. After the deletion, the post remains in the database but will be hidden from the user.
+The _delete post_ screen allows admin or user to delete an existing post. After the deletion, the post remains in the database but will be hidden from the user.
 
 
-The inbox screen allows a user to see responses to their posts. Responses to posts are private communications between the reader of the post and the originator of the post.
+The _inbox screen_ allows a user to see responses to their posts. Responses to posts are private communications between the reader of the post and the originator of the post.
 
 
-The home screen of the web site is accessible to all user roles and have the following functionality:
+The _home screen_ of the web site is accessible to all user roles and have the following functionality:
  * Display all categories and subcategories currently in the system (unless hidden) and display all subcategories within their corresponding category.
  * Allow the user to select a location (both area and locale) that corresponds to where they want to search for posts. The web page will demonstrate a url slug of the selected location and this change will also be reflected on the url path.
  * If the user have previously selected location and clicks any category or subcategory on the home page (to go to the categories screen), the posts shown on these screens should be restricted to only those posts within the location selected on the home page. Otherwise, all posts, unless expired, falls under the subcategory will be displayed.
 
-The admin portal allows the authenticated admin user to control list of areas, categories, and users.
+The _admin portal_ allows the authenticated admin user to control list of areas, categories, and users.
 
-<img src="https://raw.githubusercontent.com/szwalker/Fake-Craigslist/master/image/adminPortal.png" height="300" width="800">
+<img src="https://raw.githubusercontent.com/szwalker/Fake-Craigslist/master/image/adminPortal.jpeg" height="550" width="800">
 
 
 ## Use Cases
@@ -70,7 +72,7 @@ In addition, a user in admin role may perform the following extra operations:
 
 
 ## Security
- Security measurements has been taken to prevent XSS and CSRF requests using string encoding and anti-forgery tokens on sensitive pages.
+ Security measurements has been taken to prevent XSS and CSRF requests using string encoding and hidden anti-forgery tokens on sensitive pages.
 
 ## Custom Filter
 The default ASP.NET filter worked fine as long as a user has not logged-in the website. The filter would redirect the user to a login page and ask the user to login.
