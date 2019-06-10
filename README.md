@@ -53,6 +53,9 @@ The _home screen_ of the web site is accessible to all user roles and have the f
  * Allow the user to select a location (both area and locale) that corresponds to where they want to search for posts. The web page will demonstrate a url slug of the selected location and this change will also be reflected on the url path.
  * If the user have previously selected location and clicks any category or subcategory on the home page (to go to the categories screen), the posts shown on these screens should be restricted to only those posts within the location selected on the home page. Otherwise, all posts, unless expired, falls under the subcategory will be displayed.
 
+ <img src="https://raw.githubusercontent.com/szwalker/Fake-Craigslist/master/image/homeScreen.png" height="550" width="800">
+
+
 The _admin portal_ allows the authenticated admin user to control list of areas, categories, and users.
 
 <img src="https://raw.githubusercontent.com/szwalker/Fake-Craigslist/master/image/adminPortal.jpeg" height="550" width="800">
