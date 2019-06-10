@@ -75,4 +75,8 @@ However, we soon realize when a user has logged-in a website, the default filter
 To improve user experience, we created a customized role check filter that performs the following activities:
 if a user is not logged-in, and visit any page that requires a user role, then the filter would behave like the default filter: redirect the page to a login screen and ask the user to log in.
 
+<img src="https://raw.githubusercontent.com/szwalker/Fake-Craigslist/master/image/filter.png" height="250" width="800">
+
 After the user is logged-in, if the user does not have the proper role to visit a page, the filter will be responsible for redirecting the user to a screen that displays an informative information to the user.
+
+<img src="https://raw.githubusercontent.com/szwalker/Fake-Craigslist/master/image/denyAccess.png" height="300" width="800">
