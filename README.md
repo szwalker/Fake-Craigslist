@@ -38,7 +38,7 @@ By default, the expiration time of a post is 5 days after the time of the post c
 
 The _list posts_ screen allows a logged in user to see a list of their own unexpired and expired posts separately. The posts on the screen are always paginated, and sorted by their timestamp.
 
-<img src="https://raw.githubusercontent.com/szwalker/Fake-Craigslist/master/image/myPosts.png" height="350" width="800">
+<img src="https://raw.githubusercontent.com/szwalker/Fake-Craigslist/master/image/myPosts.png" height="450" width="800">
 
 The _create post_ screen allows admin or user to create a new post.
 
