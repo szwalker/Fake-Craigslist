@@ -51,6 +51,11 @@ The home screen of the web site is accessible to all user roles and have the fol
  * Allow the user to select a location (both area and locale) that corresponds to where they want to search for posts. The web page will demonstrate a url slug of the selected location and this change will also be reflected on the url path.
  * If the user have previously selected location and clicks any category or subcategory on the home page (to go to the categories screen), the posts shown on these screens should be restricted to only those posts within the location selected on the home page. Otherwise, all posts, unless expired, falls under the subcategory will be displayed.
 
+The admin portal allows the authenticated admin user to control list of areas, categories, and users.
+
+<img src="https://raw.githubusercontent.com/szwalker/Fake-Craigslist/master/image/adminPortal.png" height="300" width="800">
+
+
 ## Use Cases
 An authenticated user such as admin or regular user may perform the following operations:
  * Create a new post - Please see the create post screen above for page details.
