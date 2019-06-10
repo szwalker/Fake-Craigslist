@@ -29,23 +29,45 @@ The `admin` role is is for web site administrators to set up and configure the w
 
 The first user on the system is automatically generated as soon as the App finished compiling, and the account will be placed into the admin role by default.
 
-## Views
+## Post
 A post is a single listing for an item or service which can be posted by anyone in the admin or user roles. To facilitate data modeling, a post has a unique identifier, timestamp, expiration, owner, title, body, location, and category information.
 
+By default, the expiration time of a post is 5 days after the time of the post creation or last edit.
+
+## Views
 
 The _list posts_ screen allows a logged in user to see a list of their own unexpired and expired posts separately. The posts on the screen are always paginated, and sorted by their timestamp.
 
+<img src="https://raw.githubusercontent.com/szwalker/Fake-Craigslist/master/image/myPosts.png" height="550" width="800">
 
-The _create post_ screen allows admin or user to create a new post. The screen will prompt the user to enter post title, post body, post location and category. Other fields such as the date/time and unique identifier will be computed internally.
+The _create post_ screen allows admin or user to create a new post.
+
+* To avoid malicious input and solve unmatched input problems such as (Miami ?= miami), we have implemented a two-step post creation screen.
+
+* The first screen will prompt the user to select post location and category.
+
+<img src="https://raw.githubusercontent.com/szwalker/Fake-Craigslist/master/image/postOne.png" height="550" width="800">
+
+* The second screen will prompt the user to enter post title, post body, post locale and subcategory.
+
+<img src="https://raw.githubusercontent.com/szwalker/Fake-Craigslist/master/image/postTwo.png" height="550" width="800">
+
+* Other fields such as the date/time and unique identifier will be computed internally.
 
 
-The _modify post_ screen is similar to create post, except that the user can edit an existing post. As the user modifies the post, the time stamp will be updated to reflect the time of the modification.
+The _modify post_ screen is similar to the second step of create post, except that the user can edit an existing post. As the user modifies the post, the time stamp will be updated to reflect the time of the modification.
 
 
-The _delete post_ screen allows admin or user to delete an existing post. After the deletion, the post remains in the database but will be hidden from the user.
+The _delete post_ screen allows a admin user to delete an existing post. After the deletion, the post remains in the database but will be hidden from the user.
+
+<img src="https://raw.githubusercontent.com/szwalker/Fake-Craigslist/master/image/deletePost.png" height="550" width="800">
 
 
 The _inbox screen_ allows a user to see responses to their posts. Responses to posts are private communications between the reader of the post and the originator of the post.
+
+<img src="https://raw.githubusercontent.com/szwalker/Fake-Craigslist/master/image/inbox.png" height="550" width="800">
+
+<img src="https://raw.githubusercontent.com/szwalker/Fake-Craigslist/master/image/viewMessage.png" height="550" width="800">
 
 
 The _home screen_ of the web site is accessible to all user roles and have the following functionality:
