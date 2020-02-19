@@ -11,7 +11,7 @@ Fake Craigslist is a fully functional ASP.NET web application using MVC 5 that p
 Craigslist (www.craigslist.org) is a web site that allows users to post items and services for sale. It is particularly notable for its simplistic user interface. This Fake Craigslist Application is created in the same spirit as Craigslist.
 
 # Website Demo
-https://fakecraigslist.azurewebsites.net/ Sorry, the link is no longer working because azure charges me too much :(
+https://fakecraigslistfinalproject.azurewebsites.net/
 
 #### Admin Account
 ```
