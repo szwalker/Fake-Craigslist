@@ -1,5 +1,10 @@
 # Fake Craigslist
 
+#### Developed By
+ * Xuebo Lai
+ * Jiaqi Liu
+ * Chenyu Liu
+
 # Introduction
 Fake Craigslist is a fully functional ASP.NET web application using MVC 5 that provides an implements of a popular website – Craigslist (www.craigslist.org). The entire solution is layered in 5 C# libraries: user interface, Entity Framework data model, business logic, database design, and unit test.
 
